@@ -35,7 +35,7 @@ export default function DColor({ ...rest }: Parametros): JSX.Element {
 const estilos = StyleSheet.create({
   contenedor: {
     height: 140,
-    width: 125,
+    width: 150,
     alignItems: "center",
     justifyContent: "space-between",
   },

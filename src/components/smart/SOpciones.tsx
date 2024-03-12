@@ -44,9 +44,9 @@ export default function SOpciones(): JSX.Element {
 
 const estilos = StyleSheet.create({
   contenedor: {
-    height: 500,
-    width: "90%",
-    marginTop: 20,
+    flex: 1,
+    marginTop: 75,
+    marginBottom: 75,
     borderWidth: 2,
     alignItems: "center",
     justifyContent: "center",
@@ -60,7 +60,5 @@ const estilos = StyleSheet.create({
   opciones: {
     width: "100%",
     flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
