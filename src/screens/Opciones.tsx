@@ -1,11 +1,18 @@
 import Constants from "expo-constants";
-import { View, Text, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
+import SOpciones from "../components/smart/SOpciones";
+import DTituloOpciones from "../components/dumb/DTituloOpciones";
+import { useTemaContext } from "../context/TemaContext";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function Opciones(): JSX.Element {
+  const tema = useTemaContext();
+
   return (
-    <View style={estilos.contenedor}>
-      <Text>Opciones</Text>
-    </View>
+    <LinearGradient colors={tema.color.fondo} style={estilos.contenedor}>
+      <DTituloOpciones />
+      <SOpciones />
+    </LinearGradient>
   );
 }
 

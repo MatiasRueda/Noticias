@@ -1,9 +1,11 @@
 export type Color = {
   texto: string;
+  textoSecundario: string;
   fondo: string[];
+  fondoSecundario: string;
 };
 
 export type Tema = {
-  blanco: Color;
-  negro: Color;
+  white: Color;
+  black: Color;
 };
