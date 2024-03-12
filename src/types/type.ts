@@ -16,9 +16,18 @@ type Multimedia = {
   width: number;
 };
 
+type Media = {
+  "media-metadata": {
+    url: string;
+    height: number;
+    width: number;
+  }[];
+};
+
 export type Noticia = {
   section: string;
   title: string;
   abstract: string;
-  multimedia: Multimedia[];
+  multimedia?: Multimedia[];
+  media?: Media[];
 };

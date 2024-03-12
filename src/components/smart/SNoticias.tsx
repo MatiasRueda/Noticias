@@ -1,15 +1,15 @@
 import { FlatList, SafeAreaView, StyleSheet } from "react-native";
-import { home } from "../../auxiliar/home";
 import DNoticia from "../dumb/DNoticia";
 import { useTemaContext } from "../../context/TemaContext";
+import { Noticia } from "../../types/type";
 
-export default function SNoticias(): JSX.Element {
+export default function SNoticias(props: { noticias: Noticia[] }): JSX.Element {
   const tema = useTemaContext();
 
   return (
     <SafeAreaView style={estilos.contenedor}>
       <FlatList
-        data={home.results}
+        data={props.noticias}
         keyExtractor={(e) => e.title}
         renderItem={(e) => (
           <DNoticia color={tema.color.texto} noticia={e.item} />

@@ -1,14 +1,15 @@
 import Constants from "expo-constants";
-import { Text, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useTemaContext } from "../context/TemaContext";
+import DTitulo from "../components/dumb/DTitulo";
 
 export default function Buscar(): JSX.Element {
   const tema = useTemaContext();
 
   return (
     <LinearGradient colors={tema.color.fondo} style={estilos.contenedor}>
-      <Text>Buscar</Text>
+      <DTitulo titulo="Search" color={tema.color.texto} />
     </LinearGradient>
   );
 }

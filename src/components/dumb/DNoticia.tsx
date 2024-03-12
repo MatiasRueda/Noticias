@@ -16,7 +16,13 @@ export default function DNoticia({ ...rest }: Parametros): JSX.Element {
       <View style={estilos.contenedorImagen}>
         <Image
           style={estilos.imagen}
-          source={{ uri: rest.noticia.multimedia[0].url }}
+          source={{
+            uri: rest.noticia.multimedia
+              ? rest.noticia.multimedia[0].url
+              : rest.noticia.media?.length
+              ? rest.noticia.media[0]["media-metadata"]![0].url
+              : undefined,
+          }}
         />
       </View>
       <Text style={texto}>{rest.noticia.title}</Text>
