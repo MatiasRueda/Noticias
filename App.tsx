@@ -1,10 +1,13 @@
 import { NavigationContainer } from "@react-navigation/native";
 import SNavigation from "./src/components/smart/SNavigation";
+import TemaContext from "./src/context/TemaContext";
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <SNavigation />
-    </NavigationContainer>
+    <TemaContext>
+      <NavigationContainer>
+        <SNavigation />
+      </NavigationContainer>
+    </TemaContext>
   );
 }

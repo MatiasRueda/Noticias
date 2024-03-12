@@ -4,8 +4,8 @@ import { Feather } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import Inicio from "../../screens/Inicio";
 import MasVistos from "../../screens/MasVistos";
-import Buscar from "../../screens/Buscar";
 import Opciones from "../../screens/Opciones";
+import SSBuscar from "./SSBuscar";
 
 const Tab = createBottomTabNavigator();
 
@@ -21,7 +21,7 @@ export default function SNavigation(): JSX.Element {
       initialRouteName="Inicio"
     >
       <Tab.Screen
-        name="Inicio"
+        name="inicio"
         component={Inicio}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -34,7 +34,7 @@ export default function SNavigation(): JSX.Element {
         }}
       />
       <Tab.Screen
-        name="MasVistos"
+        name="masVistos"
         component={MasVistos}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -47,8 +47,8 @@ export default function SNavigation(): JSX.Element {
         }}
       />
       <Tab.Screen
-        name="Buscar"
-        component={Buscar}
+        name="sSBuscar"
+        component={SSBuscar}
         options={{
           tabBarIcon: ({ focused }) => (
             <AntDesign
@@ -60,7 +60,7 @@ export default function SNavigation(): JSX.Element {
         }}
       />
       <Tab.Screen
-        name="Opciones"
+        name="opciones"
         component={Opciones}
         options={{
           tabBarIcon: ({ focused }) => (

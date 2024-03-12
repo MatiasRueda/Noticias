@@ -1,12 +1,7 @@
 import { ReactNode, createContext, useContext, useState } from "react";
-import { Tema } from "../types/type";
+import { Color, Tema } from "../types/type";
 
-export const temas: Record<string, Tema> = {
-  calido: {
-    texto: "#ffffff",
-    fondo: ["#bc4e9c", "#f80759"],
-  },
-
+export const temas: Tema = {
   blanco: {
     texto: "#000000",
     fondo: ["#cccccc", "#d1d1d1"],
@@ -19,7 +14,7 @@ export const temas: Record<string, Tema> = {
 };
 
 type TemaContext = {
-  tema: Tema;
+  color: Color;
   cambiarColor: (tema: keyof typeof temas) => void;
 };
 
@@ -32,14 +27,14 @@ export function useTemaContext(): TemaContext {
 export default function TemaContext(props: {
   children: ReactNode;
 }): JSX.Element {
-  const [tema, setTema] = useState<Tema>(temas.calido);
+  const [color, setColor] = useState<Color>(temas.blanco);
 
-  const cambiarColor = (tema: keyof typeof temas): void => {
-    setTema(temas[tema]);
+  const cambiarColor = (colorNuevo: keyof Tema): void => {
+    setColor(temas[colorNuevo]);
   };
 
   return (
-    <Temas.Provider value={{ tema, cambiarColor }}>
+    <Temas.Provider value={{ color, cambiarColor }}>
       {props.children}
     </Temas.Provider>
   );
