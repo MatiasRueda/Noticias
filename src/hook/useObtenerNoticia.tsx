@@ -10,7 +10,7 @@ type Resultado<T> = {
   results: T[];
 };
 
-export default function obtenerNoticia<T>(url: string): Informacion<T[]> {
+export default function useObtenerNoticias<T>(url: string): Informacion<T[]> {
   const [data, setData] = useState<T[]>();
   const [cargando, setCargando] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);

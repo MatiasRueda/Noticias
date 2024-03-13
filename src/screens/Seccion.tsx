@@ -4,9 +4,11 @@ import { useTemaContext } from "../context/TemaContext";
 import Constants from "expo-constants";
 import DTitulo from "../components/dumb/DTitulo";
 import SNInicio from "../components/smart/SNInicio";
+import { useSectionContext } from "../context/SectionContext";
 
 export default function Seccion(): JSX.Element {
   const tema = useTemaContext();
+  const section = useSectionContext();
 
   const texto: TextStyle = {
     color: tema.color.texto,
@@ -18,7 +20,7 @@ export default function Seccion(): JSX.Element {
       <Text style={[texto, estilos.descripcion]}>
         The most popular articles
       </Text>
-      <SNInicio />
+      <SNInicio section={section.section} />
     </LinearGradient>
   );
 }

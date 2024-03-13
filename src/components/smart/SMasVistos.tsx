@@ -1,16 +1,17 @@
 import { FlatList, SafeAreaView, StyleSheet } from "react-native";
-import { masVistos } from "../../auxiliar/masVistos";
 import { useTemaContext } from "../../context/TemaContext";
 import DMasVista from "../dumb/DMasVista";
+import { Noticia } from "../../types/type";
 
-export default function SMasVistos(): JSX.Element {
+export default function SMasVistos(props: {
+  noticias: Noticia[];
+}): JSX.Element {
   const tema = useTemaContext();
-  const noticias = masVistos.results;
 
   return (
     <SafeAreaView style={estilos.contenedor}>
       <FlatList
-        data={noticias}
+        data={props.noticias}
         keyExtractor={(e) => e.title}
         renderItem={(e) => (
           <DMasVista color={tema.color.texto} noticia={e.item} />

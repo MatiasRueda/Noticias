@@ -3,7 +3,7 @@ import { StyleSheet, Text, TextStyle } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useTemaContext } from "../context/TemaContext";
 import DTitulo from "../components/dumb/DTitulo";
-import SMasVistos from "../components/smart/SMasVistos";
+import SNMasVistos from "../components/smart/SNMasVistos";
 
 export default function MasVistos(): JSX.Element {
   const tema = useTemaContext();
@@ -18,7 +18,7 @@ export default function MasVistos(): JSX.Element {
       <Text style={[texto, estilos.descripcion]}>
         Most viewed articles during the last day.
       </Text>
-      <SMasVistos />
+      <SNMasVistos/>
     </LinearGradient>
   );
 }

@@ -2,6 +2,8 @@ import { Text, View, TextInput, StyleSheet, TextStyle } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { useSectionContext } from "../../context/SectionContext";
+import { seccionValida } from "../../auxiliar/seccionValida";
 
 export default function SFBusqueda(props: { color: string }) {
   const {
@@ -15,13 +17,15 @@ export default function SFBusqueda(props: { color: string }) {
     },
   });
 
+  const section = useSectionContext();
   const navigate = useNavigation();
 
   const error: TextStyle = {
     color: props.color,
   };
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: { busqueda: string }) => {
+    section.agregarSection(data.busqueda);
     navigate.navigate("seccion" as never);
     reset();
   };
@@ -34,6 +38,7 @@ export default function SFBusqueda(props: { color: string }) {
             control={control}
             rules={{
               required: true,
+              validate: seccionValida,
             }}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
@@ -46,8 +51,11 @@ export default function SFBusqueda(props: { color: string }) {
             )}
             name="busqueda"
           />
-          {errors.busqueda && (
+          {errors.busqueda?.type === "required" && (
             <Text style={[error, estilos.error]}>This is required.</Text>
+          )}
+          {errors.busqueda && (
+            <Text style={[error, estilos.error]}>Invalid section.</Text>
           )}
         </View>
         <Feather

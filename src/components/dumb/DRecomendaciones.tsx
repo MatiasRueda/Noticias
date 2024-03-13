@@ -1,19 +1,10 @@
 import { View, Text, TextStyle, StyleSheet } from "react-native";
+import { recomendaciones } from "../../auxiliar/recomendaciones";
 
 type Parametros = {
   color: string;
 };
 export default function DRecomendaciones({ ...rest }: Parametros): JSX.Element {
-  const recomendaciones: string[] = [
-    "arts",
-    "automobiles",
-    "fashion",
-    "food",
-    "health",
-    "magazine",
-    "movies",
-  ];
-
   const texto: TextStyle = {
     color: rest.color,
   };
