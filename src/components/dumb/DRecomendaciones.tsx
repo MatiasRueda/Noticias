@@ -25,7 +25,7 @@ export default function DRecomendaciones({ ...rest }: Parametros): JSX.Element {
       </Text>
       <View style={estilos.recomendaciones}>
         {recomendaciones.map((recom, indice) => (
-          <Text style={estilos.recomendacion} key={indice}>
+          <Text style={[texto, estilos.recomendacion]} key={indice}>
             {recom}
           </Text>
         ))}
