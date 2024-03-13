@@ -1,9 +1,16 @@
-import { Text, View, TextInput, Button, StyleSheet } from "react-native";
+import {
+  Text,
+  View,
+  TextInput,
+  Button,
+  StyleSheet,
+  TextStyle,
+} from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-export default function SFBusqueda() {
+export default function SFBusqueda(props: { color: string }) {
   const {
     control,
     handleSubmit,
@@ -15,8 +22,13 @@ export default function SFBusqueda() {
   });
 
   const navigate = useNavigation();
+
+  const error: TextStyle = {
+    color: props.color,
+  };
+
   const onSubmit = (data: any) => {
-    navigate.navigate("section" as never);
+    navigate.navigate("seccion" as never);
   };
 
   return (
@@ -39,7 +51,9 @@ export default function SFBusqueda() {
             )}
             name="busqueda"
           />
-          {errors.busqueda && <Text>This is required.</Text>}
+          {errors.busqueda && (
+            <Text style={[error, estilos.error]}>This is required.</Text>
+          )}
         </View>
         <Feather
           name="search"
@@ -55,7 +69,7 @@ export default function SFBusqueda() {
 
 const estilos = StyleSheet.create({
   formulario: {
-    flex: 1,
+    height: 250,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -68,10 +82,15 @@ const estilos = StyleSheet.create({
   contInput: {
     height: 70,
   },
+
   input: {
     height: 40,
     width: 225,
     paddingLeft: 10,
     backgroundColor: "#ffffff",
+  },
+
+  error: {
+    textAlign: "center",
   },
 });
