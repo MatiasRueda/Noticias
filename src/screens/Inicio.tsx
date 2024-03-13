@@ -16,7 +16,7 @@ export default function Inicio(): JSX.Element {
     <LinearGradient colors={tema.color.fondo} style={estilos.contenedor}>
       <DTitulo titulo="News" color={tema.color.texto} />
       <Text style={[texto, estilos.descripcion]}>
-        The most popular news of the day
+        The most popular articles in general of the last day
       </Text>
       <SNInicio />
     </LinearGradient>
@@ -31,7 +31,9 @@ const estilos = StyleSheet.create({
     justifyContent: "center",
   },
   descripcion: {
-    marginTop: 20,
+    marginTop: 15,
+    marginBottom: 15,
+    width: "90%",
     fontSize: 20,
     textAlign: "center",
   },

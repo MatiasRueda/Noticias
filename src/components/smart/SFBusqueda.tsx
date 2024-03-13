@@ -1,11 +1,4 @@
-import {
-  Text,
-  View,
-  TextInput,
-  Button,
-  StyleSheet,
-  TextStyle,
-} from "react-native";
+import { Text, View, TextInput, StyleSheet, TextStyle } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -14,6 +7,7 @@ export default function SFBusqueda(props: { color: string }) {
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -29,6 +23,7 @@ export default function SFBusqueda(props: { color: string }) {
 
   const onSubmit = (data: any) => {
     navigate.navigate("seccion" as never);
+    reset();
   };
 
   return (
