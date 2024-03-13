@@ -59,8 +59,8 @@ export default function SNavigation(): JSX.Element {
         component={SSBuscar}
         options={{
           tabBarIcon: ({ focused }) => (
-            <AntDesign
-              name="search1"
+            <FontAwesome
+              name="search"
               size={24}
               color={focused ? tema.color.textoSecundario : tema.color.texto}
             />

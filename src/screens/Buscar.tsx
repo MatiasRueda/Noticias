@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useTemaContext } from "../context/TemaContext";
 import DTitulo from "../components/dumb/DTitulo";
+import SFBusqueda from "../components/smart/SFBusqueda";
 
 export default function Buscar(): JSX.Element {
   const tema = useTemaContext();
@@ -10,6 +11,7 @@ export default function Buscar(): JSX.Element {
   return (
     <LinearGradient colors={tema.color.fondo} style={estilos.contenedor}>
       <DTitulo titulo="Search" color={tema.color.texto} />
+      <SFBusqueda />
     </LinearGradient>
   );
 }
