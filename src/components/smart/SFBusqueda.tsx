@@ -25,7 +25,7 @@ export default function SFBusqueda(props: { color: string }) {
   };
 
   const onSubmit = (data: { busqueda: string }) => {
-    section.agregarSection(data.busqueda);
+    section.agregarSection(data.busqueda.toLowerCase());
     navigate.navigate("seccion" as never);
     reset();
   };

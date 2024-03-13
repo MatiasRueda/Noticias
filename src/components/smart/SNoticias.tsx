@@ -10,7 +10,7 @@ export default function SNoticias(props: { noticias: Noticia[] }): JSX.Element {
     <SafeAreaView style={estilos.contenedor}>
       <FlatList
         data={props.noticias}
-        keyExtractor={(e) => e.title}
+        keyExtractor={(e, indice) => indice.toString()}
         renderItem={(e) => (
           <DNoticia color={tema.color.texto} noticia={e.item} />
         )}
