@@ -17,7 +17,6 @@ export default function useObtenerNoticias<T>(url: string): Informacion<T[]> {
 
   async function obtener() {
     try {
-      console.log("Estoy aca");
       setCargando(true);
       const resultado = await fetch(url);
       const resultadoJSON: Resultado<T> = await resultado.json();
